@@ -40,28 +40,29 @@
                                 <div class="container">
                                     <div class="row">
                                     <?php foreach ($items as $value) {?>
-                                        <form action="" method= "Get" >
-                                        <div class="col-12">
-                                            <div class="card">
-                                                <img src="<?php echo $value['Img'] ?>" class="card-img-top" alt="<?php echo $value['Img'] ?>">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title"><?php echo $value['Title'] ?></h5>
-                                                    <div class="card-text">
-                                                        <div class="card-text-main">
-                                                            <p><?php echo $value['Price'] ?>Ft</p>
-                                                            <p><?php echo $value['District'] ?></p>
+                                        <form action="" method= "post" >
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <img src="<?php echo $value['Img'] ?>" class="card-img-top" alt="<?php echo $value['Img'] ?>">
+                                                        <div class="card-body">
+                                                        <h5 class="card-title"><?php echo $value['Title'] ?></h5>
+                                                        <div class="card-text">
+                                                            <div class="card-text-main">
+                                                                <p><?php echo $value['Price'] ?>Ft</p>
+                                                                <p><?php echo $value['District'] ?></p>
+                                                            </div>
+                                                            <?php echo $value['Type'] ?>
+                                                            <div class="text"><?php echo $value['Description'] ?></div>
+                                                            <input  type="hidden" name="Incoming" class="hidden" value="<?php echo $value['Incoming']; ?>">
+                                                            <input  type="hidden" name="inc" class="hidden" value="<?php echo $value['inc']; ?>">
+                                                            <input  type="hidden" name="id" class="hidden" value="<?php echo $value["Id"]; ?>">
+                                                            <input  type="hidden" name="Title" class="hidden" value="<?php echo $value["Title"]; ?>">
+                                                            <input  type="hidden" name="SellerId" class="hidden" value="<?php echo $value["SellerId"];; ?>">
+                                                            <button class="card-btn" name="show">Megtekint</button>
                                                         </div>
-                                                        <?php echo $value['Type'] ?>
-                                                        <div class="text"><?php echo $value['Description'] ?></div>
-                                                        <input  type="hidden" name="Incoming" class="hidden" value="<?php echo $value['Incoming']; ?>">
-                                                        <input  type="hidden" name="inc" class="hidden" value="<?php echo $value['inc']; ?>">
-                                                        <input  type="hidden" name="id" class="hidden" value="<?php echo $value["Id"]; ?>">
-                                                        <input  type="hidden" name="SellerId" class="hidden" value="<?php echo $value["SellerId"];; ?>">
-                                                        <button class="card-btn" name="show">Megtekint</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         </form>
                                     <?php }?>
                                     </div>
@@ -70,7 +71,7 @@
                             <div class="message-container">
                             <form action="" method="post" class="form" autocomplete="off" onsubmit="return false;">
                                 <div class="title">
-                                    <h2><?php if(isset($items[0]["Title"])!=null){echo $items[0]["Title"];}else{echo "Chat";}?></h2>
+                                    <h2><?php if(isset($title)){echo $title;}else{echo "Chat";}?></h2>
                                 </div>
                                     <div id="textarea">
                                     <?php if(isset($messages)) {?>

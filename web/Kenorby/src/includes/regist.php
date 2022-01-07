@@ -8,27 +8,27 @@ if(isset($_POST["Regist"])){
    require_once "function.php";
 
    if(EmptyInputsRegist($Username,$Password,$Email) !== false ){
-    header("location: ../index.php?error=emptyInput");
+    header("location: ../index.php?regerror=emptyInput");
     exit();
    }
    if(InvalidInputUsername($Username) !== false ){
-    header("location: ../index.php?error=invalidInputUsername");
+    header("location: ../index.php?regerror=invalidInputUsername");
     exit();
    }
    if(InvalidInputPassword($Password) !== false ){
-    header("location: ../index.php?error=invalidInputPassword");
+    header("location: ../index.php?regerror=invalidInputPassword");
     exit();
    }
    if(InvalidInputEmail($Email) !== false ){
-    header("location: ../index.php?error=invalidInputEmail");
+    header("location: ../index.php?regerror=invalidInputEmail");
     exit();
    }
    if(NotLongEnough($Username,$Password) !== false ){
-    header("location: ../index.php?error=notLongEnough");
+    header("location: ../index.php?regerror=notLongEnough");
     exit();
    }
    if(UserExist($conn,$Username,$Email) !== false ){
-    header("location: ../index.php?error=UserExist");
+    header("location: ../index.php?regerror=UserExist");
     exit();
    }
    createUser($conn,$Username,$Password,$Email);

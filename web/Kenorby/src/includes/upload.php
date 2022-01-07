@@ -72,4 +72,5 @@
                 }
             }
         }
+        header("location: upload.php?");
     }

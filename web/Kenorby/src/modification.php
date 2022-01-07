@@ -6,6 +6,8 @@ $_SESSION["Allow"] = CheckAllow($pdo,$_SESSION["UserName"])["Allow"];
 if($_SESSION["Allow"] == 1){
     require_once "includes/logout_mainPage.php";
 }
+$error= $_GET['error'] ?? null;
+include_once "includes/errors.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,8 +30,14 @@ if($_SESSION["Allow"] == 1){
                 <div class="menu-btn__burger"></div>
             </div>
         </header>
+        
         <main>
-            
+        <?php if(!empty($error) or !(empty($regerror))){ ?>
+                 <div class="<?php if($error == "none" || $error =="EmailSend"){echo "alert alert-success";}else{echo "alert alert-danger";}?>" style="position: absolute; left: 0; width: 100%; text-align:center">
+                    <?php echo error($error); ?>
+                    <?php if(!empty($regerror)){echo "regisztrációs hiba";}?>
+                </div>
+        <?php }?>
             <div class="container">
                 <form action="" method="POST"  enctype="multipart/form-data">
                     <div class="item-infos">
@@ -121,7 +129,7 @@ if($_SESSION["Allow"] == 1){
                                 Ár
                             </h2>
                             <div class="input-field">
-                                <input type="number" name="price" placeholder="Ár" value="<?php echo $price ?>">
+                                <input type="number" name="price" placeholder="Ár" min="0" value="<?php echo $price ?>">
                                 
                             </div>
                         </div>

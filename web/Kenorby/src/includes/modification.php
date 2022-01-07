@@ -91,6 +91,7 @@
                 InsertImgs($pdo,$imagePaths,$id);
             }
         }
+        header("location: upload.php?");
     }
     /*
     echo "<pre>";

@@ -32,6 +32,5 @@ session_start();
         $statement->bindValue(':inc', $inc);
         $statement->execute();
         $description=null;
-        echo "hello";
       }
     } 
