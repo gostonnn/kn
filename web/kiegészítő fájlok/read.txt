@@ -1,0 +1,2 @@
+xampp/php -ba php.init filet
+xampp/sendmail sendmail.init filet
