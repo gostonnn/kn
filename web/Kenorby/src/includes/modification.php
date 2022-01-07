@@ -91,7 +91,7 @@
                 InsertImgs($pdo,$imagePaths,$id);
             }
         }
-        header("location: upload.php?");
+        header("location: watch.php?");
     }
     /*
     echo "<pre>";
