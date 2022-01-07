@@ -412,22 +412,16 @@ function sendMail($conn,$Email){
     mysqli_stmt_bind_param($stmt,'ss',$hashed_pass, $Email );
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    $data = UserExistEmail($conn,$Email);
-    $username=$data["UserName"];
-    SendMailReal($Email,$pass,$username);
-    
+    SendMailReal($Email,$pass);
 }
-function SendMailReal($Email,$pass,$username){
+function SendMailReal($Email,$pass){
     $OurEmail = "kenorbyecom@gmail.com";
     $MailtTo = $Email;
     $Subject = "Új Jelszó igénylés";
-    $Text = "Ezen  az emailcímhez " .$MailtTo. " tartozó felhasználó név: " . $username . " és emlékeztető jelszó: ". $pass;
+    $Text = "Ezen  az emailcímhez " .$MailtTo. " tartozó emlékeztető jelszó: ".$pass;
     $Headers ="From: ".$OurEmail;
-    if(mail($MailtTo, $Subject, $Text, $Headers)){
-        header("location: ../index.php?error=EmailSend");
-    }else{
-        header("location: ../index.php?error=EmailSendFail");
-    }
+    mail($MailtTo, $Subject, $Text, $Headers);
+    header("location: ../index.php?error=EmailSend");
 }
 function SendEmail($pdo,$income,$outgoing,$msg,$id,$inc){
     $statement = $pdo->prepare("INSERT INTO messages (Incoming, Outgoing, Msg, ItemId,inc)
@@ -593,4 +587,3 @@ function CheckAllow($pdo,$user){
     $statement->execute();
     return $allow = $statement->fetch(PDO::FETCH_ASSOC);
 }
-

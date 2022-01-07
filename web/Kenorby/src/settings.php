@@ -7,8 +7,6 @@ $_SESSION["Allow"] = CheckAllow($pdo,$_SESSION["UserName"])["Allow"];
 if($_SESSION["Allow"] == 1){
     require_once "includes/logout_mainPage.php";
 }
-$error= $_GET['error'] ?? null;
-include_once "includes/errors.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +30,6 @@ include_once "includes/errors.php";
             </div>
         </header>
         <main>
-        <?php if(!empty($error) or !(empty($regerror))){ ?>
-                 <div class="<?php if($error == "none" || $error =="EmailSend"){echo "alert alert-success";}else{echo "alert alert-danger";}?>" style="position: absolute; left: 0; width: 100%; text-align:center">
-                    <?php echo error($error); ?>
-                    <?php if(!empty($regerror)){echo "regisztrációs hiba";}?>
-                </div>
-        <?php }?>
             <div class="container">
                 <div class="member-infos">
                     <div class="details">

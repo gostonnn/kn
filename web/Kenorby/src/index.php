@@ -1,15 +1,11 @@
 <?php
 include_once "includes/db_connect_PDO.php";
 include_once "includes/db_connect_MySQLi.php";
-include_once "includes/errors.php";
+
 session_start();
 if(isset($_SESSION["UserName"])){
     header("location: kenorby.php");  
 }
-$error= $_GET['error'] ?? null;
-$regerror = $_GET["regerror"] ?? null;
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +15,6 @@ $regerror = $_GET["regerror"] ?? null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenorby</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
@@ -32,12 +27,6 @@ $regerror = $_GET["regerror"] ?? null;
                 <div class="sign-in-up">
                     <form class="sign-in" method="post" action="includes/login.php">
                         <h4 class="title">Bejelentkezés</h4>
-                        <?php if(!empty($error) or !(empty($regerror))){ ?>
-                            <div class="<?php if($error == "none" || $error =="EmailSend"){echo "alert alert-success";}else{echo "alert alert-danger";}?>">
-                                <?php echo error($error); ?>
-                                <?php if(!empty($regerror)){echo "regisztrációs hiba";}?>
-                            </div>
-                        <?php }?>
                         <div class="input-field">
                             <input type="text" placeholder="Felhasználónév" id="sendmail" name="Username">
                         </div>
@@ -55,11 +44,6 @@ $regerror = $_GET["regerror"] ?? null;
 
                     <form class="sign-up" method="post" action="includes/regist.php">
                         <h4 class="title">Regisztráció</h4>
-                        <?php if(!empty($regerror)){ ?>
-                            <div class="<?php if($regerror == "none"){echo "alert alert-success";}else{echo "alert alert-danger";}?>">
-                                <?php echo regerror($regerror); ?>
-                            </div>
-                        <?php }?>
                         <div class="input-field">
                             <input type="email" placeholder="E-mail cím" name="Email">
                         </div>

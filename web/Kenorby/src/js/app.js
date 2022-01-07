@@ -51,7 +51,6 @@ forgetpass.addEventListener("click",() => {
         email.setAttribute("type","email");
         email.setAttribute("placeholder","email cím");
         Button.setAttribute("name","ForgetEmail");
-        Button.setAttribute('value',"Elküld");
         spanTag.innerHTML = "Vissza a Belépéshez";
     }else{
         pass.style.display = "flex";
@@ -59,7 +58,6 @@ forgetpass.addEventListener("click",() => {
         forget = false;
         email.setAttribute("placeholder","Felhasználó név");
         Button.setAttribute("name","Login");
-        Button.setAttribute('value',"Belépés");
         spanTag.innerHTML = "Elfelejtett jelszó?";
     }
 

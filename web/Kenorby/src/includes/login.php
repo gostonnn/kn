@@ -11,7 +11,7 @@ if(isset($_POST["Login"])){
     header("location: ../index.php?error=emptyInput");
     exit();
    }
-   if(InvalidInputUsername($Username) !== false ){
+   if(InvalidInputUsername($Password) !== false ){
     header("location: ../index.php?error=invalidInputUsername");
     exit();
    }
