@@ -421,7 +421,7 @@ function SendMailReal($Email,$pass,$username){
     $OurEmail = "kenorbyecom@gmail.com";
     $MailtTo = $Email;
     $Subject = "Új Jelszó igénylés";
-    $Text = "Ezen  az emailcímhez " .$MailtTo. " tartozó felhasználó név: " . $username . " és emlékeztető jelszó: ". $pass;
+    $Text = "Emailcím: " .$MailtTo. "\nFelhasználó név: " . $username . " \nIdeiglenes jelszó: ". $pass;
     $Headers ="From: ".$OurEmail;
     if(mail($MailtTo, $Subject, $Text, $Headers)){
         header("location: ../index.php?error=EmailSend");

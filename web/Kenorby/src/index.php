@@ -33,7 +33,7 @@ $regerror = $_GET["regerror"] ?? null;
                     <form class="sign-in" method="post" action="includes/login.php">
                         <h4 class="title">Bejelentkezés</h4>
                         <?php if(!empty($error) or !(empty($regerror))){ ?>
-                            <div class="<?php if($error == "none" || $error =="EmailSend"){echo "alert alert-success";}else{echo "alert alert-danger";}?>">
+                            <div class="<?php if($error == "none" || $error =="EmailSend"){echo "alert alert-success";}else{echo "alert alert-warning ";}?>">
                                 <?php echo error($error); ?>
                                 <?php if(!empty($regerror)){echo "regisztrációs hiba";}?>
                             </div>
@@ -56,7 +56,7 @@ $regerror = $_GET["regerror"] ?? null;
                     <form class="sign-up" method="post" action="includes/regist.php">
                         <h4 class="title">Regisztráció</h4>
                         <?php if(!empty($regerror)){ ?>
-                            <div class="<?php if($regerror == "none"){echo "alert alert-success";}else{echo "alert alert-danger";}?>">
+                            <div class="<?php if($regerror == "none"){echo "alert alert-success";}else{echo "alert alert-warning";}?>">
                                 <?php echo regerror($regerror); ?>
                             </div>
                         <?php }?>

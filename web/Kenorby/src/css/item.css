@@ -35,6 +35,7 @@ main >.container {
 }
 .images img{
     width: calc(25% - 10px);
+    min-width: calc(25% - 10px);
     border-radius: 25px;
     background: var(--white);
     margin: 5px;

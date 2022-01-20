@@ -32,7 +32,7 @@ include_once "includes/errors.php";
         </header>
         <main>
         <?php if(!empty($error) or !(empty($regerror))){ ?>
-                 <div class="<?php if($error == "none" || $error =="EmailSend"){echo "alert alert-success";}else{echo "alert alert-danger";}?>" style="position: absolute; left: 0; width: 100%; text-align:center">
+                 <div class="<?php if($error == "none" || $error =="EmailSend"){echo "alert alert-success";}else{echo "alert alert-warning";}?>" style="position: absolute; left: 0; width: 100%; text-align:center">
                     <?php echo error($error); ?>
                     <?php if(!empty($regerror)){echo "regisztrációs hiba";}?>
                 </div>

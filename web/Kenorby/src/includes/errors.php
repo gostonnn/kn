@@ -85,7 +85,7 @@ function error($error){
         exit;
     }
     if($error == "notLongEnough"){
-        return "Nem megfelelő jelszó";
+        return "Nem elég hosszú";
         exit;
     }
     if($error == "UserAllreadyExist"){
